@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru" data-mood="calm">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10101d">
+  <meta name="description" content="Твой маленький мир настроений. Выбери, что чувствуешь, найди свою мысль и музыку. Просто побудь собой.">
+  <title>MOODSPACE — твой маленький мир настроений</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#moods">К выбору настроения</a>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="#" aria-label="MOODSPACE, в начало"><span class="brand-symbol" aria-hidden="true">☾</span> MOODSPACE<span class="brand-star" aria-hidden="true">✦</span></a>
+      <span class="header-note">маленькое пространство для себя</span>
+      <button class="about-button" id="about-open">О пространстве <span aria-hidden="true">↗</span></button>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot"></span> ЗДЕСЬ МОЖНО БЫТЬ СОБОЙ</div>
+          <h1 id="hero-title">У каждого чувства<br>есть своя <em>вселенная.</em></h1>
+          <p class="hero-description">Оставь суету за пределами экрана.<br>Выбери настроение — и побудь в своём мире.</p>
+          <button class="surprise-button" id="surprise"><span aria-hidden="true">✧</span> Удиви меня <span class="button-arrow" aria-hidden="true">↗</span></button>
+          <div class="little-note"><span aria-hidden="true">↳</span> иногда вселенная знает, что тебе нужно</div>
+        </div>
+        <div class="universe" id="universe">
+          <div class="orbit orbit-one" aria-hidden="true"><span></span></div>
+          <div class="orbit orbit-two" aria-hidden="true"><span></span></div>
+          <span class="universe-star star-one" aria-hidden="true">✦</span><span class="universe-star star-two" aria-hidden="true">✧</span>
+          <div class="orb-position" id="orb-position"><button class="orb" id="orb" aria-label="Коснись своей вселенной"><span class="orb-texture" aria-hidden="true"></span><span class="orb-light" aria-hidden="true"></span></button></div>
+          <div class="orb-label"><span class="tiny-star" aria-hidden="true">✦</span> <span id="orb-caption">тишина тоже звучит</span></div>
+          <button class="breath-button" id="breath" aria-pressed="false"><span class="breath-icon" aria-hidden="true">◌</span><span id="breath-label">Дышать со сферой</span></button>
+          <div class="space-coordinate" aria-hidden="true">YOUR INNER UNIVERSE / 001</div>
+        </div>
+      </section>
+      <section class="moods-section" id="moods" aria-labelledby="moods-title">
+        <div class="section-heading"><h2 id="moods-title">Что ты чувствуешь?</h2><p>Любое настроение — на своём месте.</p></div>
+        <div class="mood-grid" role="group" aria-label="Выбери настроение">
+          <button class="mood-card" data-mood="calm" aria-pressed="true" style="--mood-color:#a8adff"><span class="mood-icon" aria-hidden="true">☾</span><span class="mood-name">Спокойствие</span><span class="mood-sub">выдохни</span><span class="mood-check" aria-hidden="true">↗</span></button>
+          <button class="mood-card" data-mood="joy" aria-pressed="false" style="--mood-color:#ffd18d"><span class="mood-icon" aria-hidden="true">☀</span><span class="mood-name">Радость</span><span class="mood-sub">светись изнутри</span><span class="mood-check" aria-hidden="true">↗</span></button>
+          <button class="mood-card" data-mood="sad" aria-pressed="false" style="--mood-color:#9cbbda"><span class="mood-icon rain-icon" aria-hidden="true">☂</span><span class="mood-name">Грусть</span><span class="mood-sub">это тоже пройдёт</span><span class="mood-check" aria-hidden="true">↗</span></button>
+          <button class="mood-card" data-mood="love" aria-pressed="false" style="--mood-color:#f8aad0"><span class="mood-icon" aria-hidden="true">♡</span><span class="mood-name">Любовь</span><span class="mood-sub">чувствуй больше</span><span class="mood-check" aria-hidden="true">↗</span></button>
+          <button class="mood-card" data-mood="energy" aria-pressed="false" style="--mood-color:#ffad88"><span class="mood-icon" aria-hidden="true">ϟ</span><span class="mood-name">Энергия</span><span class="mood-sub">твой момент — сейчас</span><span class="mood-check" aria-hidden="true">↗</span></button>
+          <button class="mood-card" data-mood="dream" aria-pressed="false" style="--mood-color:#cfb0ff"><span class="mood-icon" aria-hidden="true">✧</span><span class="mood-name">Мечтательность</span><span class="mood-sub">за пределами звёзд</span><span class="mood-check" aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+      <section class="inspiration-grid" aria-label="Мысль и музыка для твоего настроения">
+        <article class="glass thought-card">
+          <div class="card-heading"><span class="eyebrow">МЫСЛЬ ДЛЯ ТЕБЯ</span><button class="icon-button" id="copy" aria-label="Скопировать мысль" title="Скопировать мысль"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M15 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></svg></button></div>
+          <blockquote id="quote" aria-live="polite" aria-atomic="true">Необязательно всё успевать. Иногда достаточно просто быть.</blockquote>
+          <div class="thought-bottom"><span id="thought-mood">для твоего спокойствия</span><button class="text-button" id="new-quote"><span aria-hidden="true">⟳</span> Другая мысль</button></div>
+        </article>
+        <article class="glass music-card">
+          <div class="card-heading"><span class="eyebrow">ЗВУЧИТ КАК ТВОЁ НАСТРОЕНИЕ</span><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+          <div class="music-content"><div class="album-art" aria-hidden="true"><span class="vinyl"></span><span class="album-star">✦</span><span class="album-word">slow<br>down.</span></div><div class="music-details"><p class="music-genre" id="music-genre">Ambient · Soft piano</p><h3 id="music-title">Мир на паузе</h3><p id="music-description">Мягкие клавиши и воздух между нотами.</p><p class="artists" id="artists">Ólafur Arnalds · Nils Frahm · Brian Eno</p></div></div>
+          <div class="music-bottom"><span>Найди свой саундтрек</span><div class="music-links"><a id="youtube" href="https://www.youtube.com/results?search_query=Olafur+Arnalds+ambient" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a><a id="spotify" href="https://open.spotify.com/search/ambient" target="_blank" rel="noopener noreferrer">Spotify <span aria-hidden="true">↗</span></a></div></div>
+        </article>
+      </section>
+    </main>
+    <footer><span>Сделано для чувств. И для тебя <span class="footer-heart" aria-hidden="true">♡</span></span><span>Никуда не спеши. Ты уже здесь.</span><button id="motion-toggle" aria-pressed="false">Анимации: вкл.</button></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="about-dialog" aria-labelledby="about-title"><button class="dialog-close icon-button" id="about-close" aria-label="Закрыть">×</button><span class="dialog-symbol" aria-hidden="true">☾</span><p class="eyebrow">ТВОЙ МАЛЕНЬКИЙ МИР</p><h2 id="about-title">Здесь можно просто быть.</h2><p>MOODSPACE — место для небольшой паузы. Выбирай настроение, забирай понравившиеся мысли и находи музыку, которая звучит с тобой в унисон.</p><p>Кнопка «Дышать со сферой» задаёт мягкий ритм: 4 секунды вдоха и 6 секунд выдоха. Следуй ему, если тебе комфортно.</p><p>Музыка открывается на YouTube или Spotify. Сайт не воспроизводит аудио и не собирает персональные данные. Настроение и настройка анимаций хранятся только в твоём браузере.</p><p class="secret-note">Маленький секрет: коснись сферы. А если нажать на луну в логотипе пять раз, небо ответит.</p><button class="surprise-button" id="about-done">Остаться в моменте <span aria-hidden="true">✧</span></button></dialog>
+</body>
+</html>
